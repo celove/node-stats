@@ -1,0 +1,30 @@
+{
+  "name": "heroku",
+  "version": "1.0.0",
+  "description": "Node heroku api",
+  "main": "index.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "node-heroku"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "api",
+    "stats"
+  ],
+  "author": "Marcelo Mendes",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mysql2": "^2.1.0",
+    "pg": "^8.3.0",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.3",
+    "sequelize-cli": "^6.2.0"
+  }
+}
