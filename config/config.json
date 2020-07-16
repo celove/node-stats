@@ -17,7 +17,7 @@
     "username": "ndgymkcnwaeogg",
     "password": "3fd6cfe9b665bd73116d2c8aecdacb5e0873cdfaebabf2a36b97c854a7af8817",
     "database": "dd7dvacfi88akv",
-    "host": "ec2-18-214-119-135.compute-1.amazonaws.com",
+    "host": "localhost",
     "dialect": "postgres",
     "use_env_variable": "DATABASE_URL"
   }
