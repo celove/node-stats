@@ -4,7 +4,7 @@ const bodyParser = require('body-parser');
 const db = require('./models/index.js');
 const path = require('path');
 const stats_jogos = require('./models/stats_jogos.js');
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.get('/', function (req, res) {
     res.sendFile(path.join(__dirname + '/index.html'));
