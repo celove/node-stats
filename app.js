@@ -4,6 +4,7 @@ const bodyParser = require('body-parser');
 const db = require('./models/index.js');
 const path = require('path');
 const stats_jogos = require('./models/stats_jogos.js');
+const cors = require('cors');
 const port = process.env.PORT || 3000;
 
 app.get('/', function (req, res) {
@@ -14,6 +15,8 @@ app.listen(port, () => console.log(`Stats-tracker listening on port ${port}!`));
 app.use(express.json())
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.urlencoded());
+
+app.use(cors());
 
 app.get('/get', function (req, res) {
     db.stats_jogos.findAll({ order: [['createdAt', 'DESC']], limit: 15 })
