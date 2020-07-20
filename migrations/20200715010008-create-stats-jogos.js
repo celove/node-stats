@@ -14,6 +14,12 @@ module.exports = {
       jogador2: {
         type: Sequelize.STRING
       },
+      time1: {
+        type: Sequelize.STRING
+      },
+      time2: {
+        type: Sequelize.STRING
+      },
       gols1: {
         type: Sequelize.INTEGER
       },

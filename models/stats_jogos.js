@@ -16,6 +16,8 @@ module.exports = (sequelize, DataTypes) => {
   stats_jogos.init({
     jogador1: DataTypes.STRING,
     jogador2: DataTypes.STRING,
+    time1: DataTypes.STRING,
+    time2: DataTypes.STRING,    
     gols1: DataTypes.INTEGER,
     gols2: DataTypes.INTEGER
   }, {
