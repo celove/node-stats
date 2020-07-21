@@ -19,7 +19,8 @@ module.exports = (sequelize, DataTypes) => {
     time1: DataTypes.STRING,
     time2: DataTypes.STRING,    
     gols1: DataTypes.INTEGER,
-    gols2: DataTypes.INTEGER
+    gols2: DataTypes.INTEGER,
+    data: DataTypes.DATE
   }, {
     sequelize,
     modelName: 'stats_jogos',
