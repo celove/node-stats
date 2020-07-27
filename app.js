@@ -18,13 +18,65 @@ app.use(express.urlencoded());
 
 app.use(cors());
 
-app.get('/get', function (req, res) {
-    db.stats_jogos.findAll({ order: [['createdAt', 'DESC']], limit: 15 })
+app.post('/getCampeonato', function (req, res) {
+    console.log(req.body);
+    db.stats_jogos.findAll({
+        where: {
+            [Op.or]: [
+                {
+                    [Op.or]:
+                        [
+                            {
+                                [Op.and]: [{ jogador1: req.body.jogador1 }, { time1: req.body.time1 }]
+                            },
+                            {
+                                [Op.and]: [{ jogador1: req.body.jogador2 }, { time1: req.body.time2 }]
+                            },
+                            {
+                                [Op.and]: [{ jogador1: req.body.jogador3 }, { time1: req.body.time3 }]
+                            },
+                            {
+                                [Op.and]: [{ jogador1: req.body.jogador4 }, { time1: req.body.time4 }]
+                            },
+                            {
+                                [Op.and]: [{ jogador1: req.body.jogador5 }, { time1: req.body.time5 }]
+                            }
+                        ]
+                },
+                {
+                    [Op.or]:
+                        [
+                            {
+                                [Op.and]: [{ jogador2: req.body.jogador1 }, { time2: req.body.time1 }]
+                            },
+                            {
+                                [Op.and]: [{ jogador2: req.body.jogador2 }, { time2: req.body.time2 }]
+                            },
+                            {
+                                [Op.and]: [{ jogador2: req.body.jogador3 }, { time2: req.body.time3 }]
+                            },
+                            {
+                                [Op.and]: [{ jogador2: req.body.jogador4 }, { time2: req.body.time4 }]
+                            },
+                            {
+                                [Op.and]: [{ jogador2: req.body.jogador5 }, { time2: req.body.time5 }]
+                            },
+                        ]
+                }
+            ]
+        }, order: [['createdAt', 'DESC']], limit: 15
+    })
         .then(jogosObj => {
             res.send(jogosObj);
         });
 });
 
+app.get('/get', function (req, res) {
+    db.stats_jogos.findAll({ order: [['data', 'DESC']], limit: 150 })
+        .then(jogosObj => {
+            res.send(jogosObj);
+        });
+});
 
 app.get('/getJogadoresTimes', function (req, res) {
     console.log(req.query);
